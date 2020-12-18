@@ -1,7 +1,7 @@
 package loggable
 
 import (
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 // Plugin is a hook for gorm.
@@ -14,7 +14,7 @@ type Plugin struct {
 // There is also available some options, that should be passed there.
 // Options cannot be set after initialization.
 func Register(db *gorm.DB, opts ...Option) (Plugin, error) {
-	err := db.AutoMigrate(&ChangeLog{}).Error
+	err := db.AutoMigrate(&ChangeLog{})
 	if err != nil {
 		return Plugin{}, err
 	}
