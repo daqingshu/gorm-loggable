@@ -1,4 +1,4 @@
-module github.com/sas1024/gorm-loggable
+module github.com/daqingshu/gorm-loggable
 
 go 1.14
 

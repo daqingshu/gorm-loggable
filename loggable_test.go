@@ -2,15 +2,15 @@ package loggable_test
 
 import (
 	"fmt"
-	"gorm.io/gorm/logger"
 	"log"
 	"os"
 	"testing"
 	"time"
 
-	loggable "github.com/sas1024/gorm-loggable"
+	loggable "github.com/daqingshu/gorm-loggable"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var db *gorm.DB
@@ -36,9 +36,9 @@ func TestMain(m *testing.M) {
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer
 		logger.Config{
-			SlowThreshold: time.Second,   // Âı SQL ãĞÖµ
-			LogLevel:      logger.Info,   // Log level
-			Colorful:      false,         // ½ûÓÃ²ÊÉ«´òÓ¡
+			SlowThreshold: time.Second, // æ…¢ SQL é˜ˆå€¼
+			LogLevel:      logger.Info, // Log level
+			Colorful:      false,       // ç¦ç”¨å½©è‰²æ‰“å°
 		},
 	)
 	//dsn := "user=postgres password=Nimo%40123 DB.name=loggable port=5432 sslmode=disable TimeZone=Asia/Shanghai"
@@ -84,7 +84,6 @@ func TestTryModel(t *testing.T) {
 	}
 	var st SomeType
 
-	// ¿ÉÒÔ
 	db.First(&st)
 	fmt.Println(st)
 }
